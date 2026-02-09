@@ -245,7 +245,7 @@ input, select, textarea {
 /* Styling for the popup content to make it scrollable */
 .popup-content {
     background-color: #fff;
-    margin: 8% auto; /* Center the popup vertically with some margin */
+    margin: 6% auto; /* Center the popup vertically with some margin */
     padding: 20px;
     border-radius: 5px;
     width: 80%;
@@ -2303,7 +2303,9 @@ input, select, textarea {
     #nav li.is-hidden {
         display: none;
     }
-    
+    .popup-content {
+        margin: 25% auto;
+    }
     #nav ul {
         display: flex;
         justify-content: center;

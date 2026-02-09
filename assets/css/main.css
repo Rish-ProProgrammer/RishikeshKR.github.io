@@ -2299,6 +2299,16 @@ input, select, textarea {
 					border-top: solid 0.6em #282828;
 				}
 
+@media screen and (max-width: 736px) {
+    #nav li.is-hidden {
+        display: none;
+    }
+    
+    #nav ul {
+        display: flex;
+        justify-content: center;
+    }
+}
 /* Articles */
 
 	body > article {

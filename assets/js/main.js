@@ -78,7 +78,29 @@
     //         $navLinks.filter('[href="#' + lastId + '"]').addClass('active');
     //     }
     // }
+function updateNavWindow() {
+    // Only run this logic on smaller screens (e.g., less than 736px)
+    if (window.innerWidth > 736) {
+        document.querySelectorAll('#nav li').forEach(li => li.classList.remove('is-hidden'));
+        return;
+    }
 
+    const navItems = Array.from(document.querySelectorAll('#nav li'));
+    const activeIndex = navItems.findIndex(li => li.querySelector('a').classList.contains('active'));
+
+    navItems.forEach((li, index) => {
+        // Show if it's the active one, the one before, or the one after
+        if (index === activeIndex || index === activeIndex - 1 || index === activeIndex + 1) {
+            li.classList.remove('is-hidden');
+        } else {
+            li.classList.add('is-hidden');
+        }
+    });
+}
+
+// Run on load and whenever the window is resized
+window.addEventListener('resize', updateNavWindow);
+window.addEventListener('load', updateNavWindow);
     function updateActiveNav() {
         if (!isScrolling) return;
     
@@ -144,11 +166,13 @@
     // Scroll event handler to update active nav link
     $(window).on('scroll', function() {
         updateActiveNav();
+        updateNavWindow();
     });
 
     // Initialize active link on page load
     $(document).ready(function() {
         updateActiveNav();
+        updateNavWindow();
     });
 
 })(jQuery);

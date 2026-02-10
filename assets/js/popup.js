@@ -36,7 +36,8 @@ window.addEventListener('click', (event) => {
       e.preventDefault();
       
       const box = this.closest('.box');
-      const titleText = box.querySelector('h4 a').innerText;
+      const popup = document.getElementById('popup');
+      const titleText = box.querySelector('h4').innerText;
       const img2titleText = document.getElementById('img2Title');
       const popupTitle = document.getElementById('popupTitle');
       const popupText = document.getElementById('popupText');
@@ -67,10 +68,26 @@ window.addEventListener('click', (event) => {
       popupImage.alt = "Project Screenshot";
       img2titleText.innerText = "Output"
     }
-    else {
-      popupText.innerHTML = "This was my MSc Project that uses 4 modules and gives feedback for each question after answering. It uses<br>- <strong>Gaze tracking</strong> to detect if user looks straight or at other directions the most.<br>- <strong>Speech analysis</strong> to analyse metrics such as words per minute, average silence duration, etc.<br>- <strong>Gemini</strong> for custom question generation and answer evaluation.<br>- <strong>Face emotion detection</strong> to assess emotions expressed.<br>- <strong>Streamlit</strong> for GUI.<br><h4 style='text-align: center;'>Inference Pipeline</h4>";
-      popupImage.src = "images/image2.png";
-      popupImage.alt = "Default Project Screenshot";
+    else if (titleText === 'Master Microsoft Excel - LinkedIn') {
+      // popupText.innerHTML = "Fein";
+      // popupImage.src = "images/image2.png";
+      // popupImage.alt = "Default Project Screenshot";
+      window.open("assets/docs/CertificateOfCompletion_Master Microsoft Excel.pdf", "_blank");
+      popup.style.display = 'none';
+    }
+    else if (titleText === 'Fundamentals of Deep Learning - NVIDIA') {
+      // popupText.innerHTML = "Fein";
+      // popupImage.src = "images/image2.png";
+      // popupImage.alt = "Default Project Screenshot";
+      window.open("assets/docs/NVIDIA_cert.png", "_blank");
+      popup.style.display = 'none';
+    }
+        else if (titleText === 'Machine Learning Specialization - Stanford University (Coursera)') {
+      // popupText.innerHTML = "Fein";
+      // popupImage.src = "images/image2.png";
+      // popupImage.alt = "Default Project Screenshot";
+      window.open("assets/docs/ML_Cert.pdf", "_blank");
+      popup.style.display = 'none';
     }
     // if (titleText === "AI Powered Job Interview Trainer") {
     //   img2titleText.innerText = "Output"

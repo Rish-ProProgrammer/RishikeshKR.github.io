@@ -57,7 +57,35 @@ window.addEventListener('click', (event) => {
     const popupImage = document.getElementById('popupImage');
     
     const popupImage2 = document.getElementById('popupImage2');
-    if (titleText === "AI Powered Job Interview Trainer") {
+    if (titleText === "AI Job Post Analyser") {
+      popupText.innerHTML = `
+  <div class="star-item">
+    <div class="star-heading">Context</div>
+    <div class="star-text">In a crowded job market, applicants spend hours tailoring resumes for roles they aren't actually qualified for. This tool aims to save time for the user by giving metrics like job match and competitiveness scores, and preparation materials.</div>
+  </div>
+  <div class="star-item">
+    <div class="star-heading">Goal</div>
+    <div class="star-text">Develop a useful and easy to use tool where users can enter details to get a detailed analysis of the job, resume tips and preparation materials.</div>
+  </div>
+  <div class="star-item">
+    <div class="star-heading">Approach</div>
+    <ul class="star-list">
+    <li>User enters the Company, job role, job description (if available) and uploads their CV.
+    <li>After CV is uploaded, important PIIs are redacted using Microsoft Presidio, and more redaction can be done by the user. This gives the necessary context without giving sensitive information.
+    <li>After submitting, Gemini and YouTube APIs run and fetch various metrics such as Job Score, Competitiveness Score, company information, resume tips, interview preparation questions-answers, online sites and YouTube tutorials.
+    </ul>
+  </div>
+  <div class="star-item">
+    <div class="star-heading">Outcome</div>
+    <div class="star-text">An innovative framework was developed that gives a deep insight about the job to the user, tips to improve their CV, prepare for the interview and online resources to upscale themselves.</div>
+  </div>
+`;
+      popupImage.style.display = "none";
+      popupImage2.style.display = "none";
+      popupImage.alt = "Project Screenshot";
+      img2titleText.style.display = "none"
+    }
+    else if (titleText === "AI Powered Job Interview Trainer") {
       popupText.innerHTML = `
   <div class="star-item">
     <div class="star-heading">Context</div>
@@ -83,7 +111,9 @@ window.addEventListener('click', (event) => {
   </div>
   <h4 style='text-align: center;'>Inference Pipeline</h4>
 `;
+      popupImage.style.display = 'block'
       popupImage.src = "images/1.Inference.png";
+      popupImage2.style.display = 'block'
       popupImage2.src = "images/13.Feedback.png";
       popupImage.alt = "Project Screenshot";
       img2titleText.innerText = "Output"
@@ -130,7 +160,9 @@ team since it provides a base which can be expanded upon.</div>
   </div>
   <h4 style='text-align: center;'>Inference Pipeline</h4>
 `;
+      popupImage.style.display = 'block'
       popupImage.src = "images/proj2Workflow.png";
+      popupImage2.style.display = 'block'
       popupImage2.src = "images/outputProj2.png";
       popupImage.alt = "Project Screenshot";
       img2titleText.innerText = "Output"

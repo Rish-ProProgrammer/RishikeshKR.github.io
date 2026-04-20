@@ -57,54 +57,46 @@ window.addEventListener('click', (event) => {
     const popupImage = document.getElementById('popupImage');
     
     const popupImage2 = document.getElementById('popupImage2');
-    if (titleText === "Job Role Recommender using Interview Recordings") {
+    if (titleText === "AI-Powered Document Chatbot") {
       popupText.innerHTML = popupText.innerHTML = `
   <div class="star-item">
     <div class="star-heading">Context</div>
-    <div class="star-text">Instead of using the traditional approach for Job Role Recommendation, that is,
-parsing the CV and recommending based on the parsed output, the interview
-recording is used as input. The interview gives a lot of information and insight about the
-candidate, which can sometimes not be the case with resume analysis.</div>
+    <div class="star-text">Extracting insights from documents like PDFs and CSVs have become very important, since they
+    enable users to ask questions to retrieve information rather than searching manually, saving time. However, using LLMs like ChatGPT 
+    or Gemini directly or their APIs introduce issues like rate limits and privacy concerns. This project aims to address these issues, 
+    using the RAG technique for PDFs and a text-to-sql model for CSVs.</div>
   </div>
   <div class="star-item">
     <div class="star-heading">Goal</div>
-    <div class="star-text">The main goal of this project is to get an audio or video recording of an interview
-and then predict which department, which role in that department and the candidate’s best
-soft skill. An explanation for the predicted department is also given, along with the
-predicted probabilities for each department.</div>
+    <div class="star-text">Develop an easy to use app that users can use to upload documents and ask questions from those documents.</div>
   </div>
   <div class="star-item">
     <div class="star-heading">Approach</div>
     <ul class="star-list">
-    <li>Audio to text conversion of recorded interview.
-    <li>Pass the transcript along with the list of departments to the zero shot classifier to get
-the predicted department.
-    <li>Once predicted department is known, pass the transcript and the list of job roles
-based on the predicted department to the zero shot classifier to get the best job role.
-    <li>Pass the transcript along with the list of soft skills to the zero shot classifier to get
-the best quality the candidate possesses.
-    <li>Once all the above steps are completed, display a HTML file containing predicted
-probabilities of each department with respect to the text, and the transcript with
-words highlighted. These highlighted words are related to the predicted department.
-This option is available only when user chooses to predict best department from all
-available departments.
+    <li>User is asked if they want to upload PDF or CSV.
+    <li>A name for the respective knowledge base can be given.
+    <li>Once submitted,
+    <ul>
+    <li>If a PDF file(s) was submitted, embeddings are computed and stored in a ChromaDB database.
+    <li>If a CSV file(s) was submitted, the CSV file is converted to a .db SQLite database.
+    </ul>
+    <li>User can then choose if they want to chat with the PDF or the CSV database.
+    <li>RAG technique is used for chatting with PDFs, while a text-to-sql model is used to chat with the SQLite database.
     </ul>
   </div>
   <div class="star-item">
     <div class="star-heading">Outcome</div>
-    <div class="star-text">This project gives users the ability to automatically get the best department, job role
-and quality of any candidate based on their interview recording, which will save a lot of
-time and effort. This will really help in the hiring process by reducing the work of the HR
-team since it provides a base which can be expanded upon.</div>
+    <div class="star-text">Developed a Streamlit-based LLM-powered chatbot that handles PDF and CSV files; uses locally-run Hugging Face
+transformer models to avoid rate limits and preserve privacy, with RAG (embedding-based retrieval) for PDF
+queries and a text-to-SQL model for CSV (Database) queries.</div>
   </div>
-  <h4 style='text-align: center;'>Inference Pipeline</h4>
 `;
-      popupImage.style.display = 'block'
+      popupImage.style.display = 'none'
       popupImage.src = "images/proj2Workflow.png";
-      popupImage2.style.display = 'block'
+      popupImage2.style.display = 'none'
       popupImage2.src = "images/outputProj2.png";
-      popupImage.alt = "Project Screenshot";
-      img2titleText.innerText = "Output"
+      popupImage.alt = "";
+      img2titleText.innerText = ""
     }
     else if (titleText === "AI Job Post Analyser") {
       popupText.innerHTML = `

@@ -81,7 +81,19 @@ window.addEventListener('click', (event) => {
     <li>If a CSV file(s) was submitted, the CSV file is converted to a .db SQLite database.
     </ul>
     <li>User can then choose if they want to chat with the PDF or the CSV database.
-    <li>RAG technique is used for chatting with PDFs, while a text-to-sql model is used to chat with the SQLite database.
+    <li>RAG (Retrieval-Augmented Generation) technique is used for chatting with PDFs, while a text-to-sql model is used to chat with the SQLite database.
+    <li>Hugging Face models were used, which were carefully chosen for their small size and low latency, ensuring fast responses while running entirely on local hardware.
+    <li>Models and database used for PDFs
+    <ul>
+    <li>Embeddings: nomic-ai/nomic-embed-text-v1.5
+    <li>Vector DB: ChromaDB
+    <li>LLM: Qwen/Qwen2.5-0.5B-Instruct
+    </ul>
+    <li>Models and database used for CSVs
+        <ul>
+    <li>Model: Qwen/Qwen2.5-Coder-0.5B-Instruct
+    <li>CSV DB: SQLite3
+    </ul>
     </ul>
   </div>
   <div class="star-item">
